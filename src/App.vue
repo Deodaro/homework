@@ -64,23 +64,27 @@ export default {
       // для новой заметки
       note: {
         title: '',
-        descr: ''
+        descr: '',
+        priority: 0
       },
       notes: [
         {
           title: 'First Note',
           descr: 'Description for first note',
-          date: new Date(Date.now()).toLocaleString()
+          date: new Date(Date.now()).toLocaleString(),
+          priority: 0
         },
         {
           title: 'Second Note',
           descr: 'Description for second note',
-          date: new Date(Date.now()).toLocaleString()
+          date: new Date(Date.now()).toLocaleString(),
+          priority: 1
         },
         {
           title: 'Third Note',
           descr: 'Description for third note',
-          date: new Date(Date.now()).toLocaleString()
+          date: new Date(Date.now()).toLocaleString(),
+          priority: 2
         }
       ]
     }

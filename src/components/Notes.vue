@@ -1,7 +1,9 @@
 <template>
   <!-- note list -->
   <div class="notes">
-    <div class="note" :class="{ full: !grid }" v-for="(note, index) in notes" :key="index">
+    <div class="note"
+      :class="{ full: !grid, highPrior: note.priority === 1, highestPrior: note.priority === 2 }"
+      v-for="(note, index) in notes" :key="index">
       <div class="note-header" :class="{ full: !grid }">
         <p>{{ note.title}}</p>
         <p style="cursor: pointer" @click="removeNote(index)">x</p>
@@ -16,6 +18,11 @@
 
 <script>
 export default {
+  // data() {
+  //   return {
+  //     priority: high
+  //   }
+  // },
   props: {
     notes: {
       type: Array,
@@ -59,7 +66,13 @@ export default {
     &.full {
       width: 100%;
       text-align: center;
-    }   
+    }
+    &.highPrior {
+      background-color: orange;
+    }
+    &.highestPrior {
+      background-color: red;
+    }
   }
   .note-header {
     display: flex;
