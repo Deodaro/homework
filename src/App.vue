@@ -7,7 +7,6 @@
           <!-- title -->
           <h1>{{ title }}</h1> 
 
-          <!-- показывается только тогда, когда значение data message - true -->
           <!-- если true, то вызываем значение massage -->
           <message v-if="message" :message="message" />
           
@@ -65,26 +64,26 @@ export default {
       note: {
         title: '',
         descr: '',
-        priority: 0
+        priority: 'normal'
       },
       notes: [
         {
           title: 'First Note',
           descr: 'Description for first note',
           date: new Date(Date.now()).toLocaleString(),
-          priority: 0
+          priority: 'normal'
         },
         {
           title: 'Second Note',
           descr: 'Description for second note',
           date: new Date(Date.now()).toLocaleString(),
-          priority: 1
+          priority: 'high'
         },
         {
           title: 'Third Note',
           descr: 'Description for third note',
           date: new Date(Date.now()).toLocaleString(),
-          priority: 2
+          priority: 'highest'
         }
       ]
     }
@@ -92,7 +91,7 @@ export default {
   methods: {
       addNote () {
         // создаём переменные из this.note, чтобы не набирать каждый раз 'this.note.что-то'
-        let {title, descr} = this.note
+        let {title, descr, priority} = this.note
 
         if (title === '') {
           this.message = 'title can\'t be blank!'
@@ -102,12 +101,13 @@ export default {
         this.notes.push({
           title,
           descr,
+          priority,
           date: new Date(Date.now()).toLocaleString()
         })
         this.message = null
         this.note.title = ''
         this.note.descr = ''
-        // но ведь объяление переменных {title, descr} и reset происходят у нас на одном и том же уровне вложенности?
+        this.note.priority = 'normal'
       },
       removeNote (index) {
         this.notes.splice(index, 1)
@@ -136,35 +136,6 @@ export default {
 }
 </script>
 
-<style>
-
-/* дублирует note-header */
-/* .notes-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  p {
-    font-size: 22px;
-    color: #444ce0;
-  }
-  svg {
-    margin-right: 12px;
-    color: #999;
-    &.active {
-      color: #444ce0;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-  &.full {
-    justify-content: center;
-    p {
-      margin-right: 16px;
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-} */
+<style lang="scss">
+  
 </style>

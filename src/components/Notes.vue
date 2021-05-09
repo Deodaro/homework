@@ -2,7 +2,7 @@
   <!-- note list -->
   <div class="notes">
     <div class="note"
-      :class="{ full: !grid, highPrior: note.priority === 1, highestPrior: note.priority === 2 }"
+      :class="{ full: !grid, highPrior: note.priority === 'high', highestPrior: note.priority === 'highest' }"
       v-for="(note, index) in notes" :key="index">
       <div class="note-header" :class="{ full: !grid }">
         <p>{{ note.title}}</p>
@@ -12,6 +12,7 @@
         <p>{{ note.descr }}</p>
         <span>{{ note.date }}</span>
       </div>
+      <!-- <p>Priority: {{ note.priority }}</p> -->
     </div>
   </div>
 </template>
@@ -67,12 +68,6 @@ export default {
       width: 100%;
       text-align: center;
     }
-    &.highPrior {
-      background-color: orange;
-    }
-    &.highestPrior {
-      background-color: red;
-    }
   }
   .note-header {
     display: flex;
@@ -110,5 +105,14 @@ export default {
       font-size: 14px;
       color: #999;
     }
+  }
+  .highPrior {
+    // background-color: #fed330;
+    background-color: rgb(250, 188, 72);
+    // background-color: rgb(250, 75, 72);
+  }
+  .highestPrior {
+    // background-color: #fc5c65;
+    background-color: rgb(250, 75, 72);
   }
 </style>
