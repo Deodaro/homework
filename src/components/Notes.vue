@@ -24,6 +24,9 @@ export default {
   //     priority: high
   //   }
   // },
+  // data: {
+  //   priorities: [white, orange, red]
+  // },
   props: {
     notes: {
       type: Array,
@@ -63,7 +66,6 @@ export default {
       transform: translate(0, -6px);
       transition-delay: 0s im !important;
     }
-    // проверка на класс full
     &.full {
       width: 100%;
       text-align: center;
@@ -107,12 +109,12 @@ export default {
     }
   }
   .highPrior {
-    // background-color: #fed330;
-    background-color: rgb(250, 188, 72);
-    // background-color: rgb(250, 75, 72);
+    // color: #000;
+    background-color: #fba94b;
+    // background-color: rgb(250, 188, 72);
   }
   .highestPrior {
-    // background-color: #fc5c65;
-    background-color: rgb(250, 75, 72);
+    background-color: #ff646c;
+    // background-color: rgb(250, 75, 72);
   }
 </style>

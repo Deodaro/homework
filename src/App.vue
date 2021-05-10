@@ -7,13 +7,10 @@
           <!-- title -->
           <h1>{{ title }}</h1> 
 
-          <!-- если true, то вызываем значение massage -->
+          <!-- message -->
           <message v-if="message" :message="message" />
           
           <!-- new note -->
-          <!-- в пропс :note передаём всю note из data -->
-          <!-- @addNote - название эмита и то, что мы будем делать, когда этот эмит будет передаваться -->
-          <!-- передавать будем addNote -->
           <newNote :note="note" @addNote="addNote" />
 
           <div class="note-header">
@@ -64,14 +61,15 @@ export default {
       note: {
         title: '',
         descr: '',
-        priority: 'normal'
+        priority: 'normal',
+        options: ['normal', 'high', 'highest']
       },
       notes: [
         {
           title: 'First Note',
           descr: 'Description for first note',
           date: new Date(Date.now()).toLocaleString(),
-          priority: 'normal'
+          priority: 'normal',
         },
         {
           title: 'Second Note',
