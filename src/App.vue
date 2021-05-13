@@ -20,8 +20,6 @@
               :value="search"
               placeholder="Find your note"
               @search="search = $event" />
-
-            <!-- <p>{{ search }}</p> -->
             
             <!-- icons controls -->
             <div class="icons">
@@ -42,7 +40,6 @@
 
 <script>
 import message from '@/components/Message.vue'
-// компоненты принято называть с большой буквы; при импорте - с маленькой
 import newNote from '@/components/NewNote.vue'
 import notes from '@/components/Notes.vue'
 import search from '@/components/Search.vue'
@@ -57,12 +54,11 @@ export default {
       search: '',
       message: null,
       grid: true,
-      // для новой заметки
       note: {
         title: '',
         descr: '',
         priority: 'normal',
-        // options: ['normal', 'high', 'highest']
+        // options: ['normal', 'high', 'highest'] (for Priority v.2)
       },
       notes: [
         {
@@ -88,7 +84,6 @@ export default {
   },
   methods: {
       addNote () {
-        // создаём переменные из this.note, чтобы не набирать каждый раз 'this.note.что-то'
         let {title, descr, priority} = this.note
 
         if (title === '') {
@@ -113,27 +108,18 @@ export default {
     },
     computed: {
       notesFilter() {
-        // массив, который будем обходить,
-        // и строка, по которой будем фильтровать
         let array = this.notes,
           search = this.search
-        // если search пустой, возвращаем array
         if (!search) return array
         search = search.trim().toLowerCase()
-        // отфильтровать массив
         array = array.filter(function(item) {
-          // если у заголовок item'а есть в search
           if (item.title.toLowerCase().indexOf(search) !== -1) {
             return item
           }
         })
-        // проверка на ошибку
         return array
       }
     }
 }
 </script>
 
-<style lang="scss">
-  
-</style>

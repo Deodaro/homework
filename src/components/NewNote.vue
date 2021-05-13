@@ -4,7 +4,7 @@
     <label for="">Title</label>
     <input v-model="note.title" type="text">
     <label for="">Description</label>
-    <textarea :class="{ highPrior: note.priority === 'high', highestPrior: note.priority === 'highest' }" v-model="note.descr"></textarea>
+    <textarea :class="[note.priority]" v-model="note.descr"></textarea>
 
     <!-- Priority -->
     <div class="priority-wrapper">
@@ -81,7 +81,6 @@ export default {
   }
   .priority-wrapper {
     display: flex;
-    // justify-content: space-around;
     justify-content: center;
     margin-top: 1em;
     font-size: 16px;
