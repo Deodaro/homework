@@ -5,7 +5,7 @@
       <section>
         <div class="container">
           <!-- title -->
-          <h1>{{ title }}</h1> 
+          <h1 class="title">{{ title }}</h1> 
 
           <!-- message -->
           <message v-if="message" :message="message" />
@@ -62,7 +62,7 @@ export default {
         title: '',
         descr: '',
         priority: 'normal',
-        options: ['normal', 'high', 'highest']
+        // options: ['normal', 'high', 'highest']
       },
       notes: [
         {

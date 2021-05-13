@@ -5,10 +5,9 @@
     <input v-model="note.title" type="text">
     <label for="">Description</label>
     <textarea :class="{ highPrior: note.priority === 'high', highestPrior: note.priority === 'highest' }" v-model="note.descr"></textarea>
-    <!-- <p> Note Priority now: {{ note.priority }} </p> -->
 
     <!-- Priority -->
-    <!-- <div class="priority-wrapper">
+    <div class="priority-wrapper">
       <div class="priority-item">
         <p>Priority: </p>        
       </div>
@@ -27,35 +26,28 @@
         <input type="radio" v-model="note.priority" name="priority" value="highest" id="highest">
         <label for="highest" style="color: #ff646c">Highest</label>      
       </div>
-    </div> -->
+    </div>
 
 
-    <!-- <div class="priority__wrapper"> 
-      <input
-        type="radio"
-        v-model="note.priority"
-        :value="option"
-        :key="index"
-        name="priority"
-        :id="index">
-      <label
-        v-for="(option, index) in note.options"
-        :key="index"
-        for="">{{ option }}</label>
-    </div> -->
-    <div class="priority-wrapper">
+    <!-- Priority version 2 -->
+    <!-- <div class="priority-wrapper">
+      <div class="priority-item">
+        <p>Priority: </p>
+      </div>
       <div class="priority-item"
       v-for="(option, index) in note.options"
       :key="index"> 
-        <label><input
+        <label>
+          <input
           type="radio"
           v-model="note.priority"
           :value="option"
           name="priority"
           :id="index">
-          {{ option }}</label>
+          {{ option }}
+        </label>
       </div>
-    </div>
+    </div> -->
     
     <button class="btn btnPrimary" @click="addNote">New Note</button>
   </div>
@@ -94,14 +86,14 @@ export default {
     margin-top: 1em;
     font-size: 16px;
     .priority-item {
-      // display: flex;
-      // align-items: center;
+      display: flex;
+      align-items: center;
       margin-right: 1em;
       &:last-child {
         margin-right: 0;
       }
       label {
-        // margin-left: 2px;
+        margin-left: 3px;
         display: flex;
         input {
           margin-left: 2px;
